@@ -8,11 +8,17 @@ insecure, it's just for learning.
 To start the server:
 
 ```
-$ go run server.go
+$ go run server.go bash
 ```
 
 To connect as a client:
 
 ```
-stty raw -echo && nc localhost 7777 
+stty raw -echo && nc localhost 7777  && stty sane
+```
+
+or
+
+```
+go run client.go localhost 7777
 ```
