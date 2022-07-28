@@ -1,6 +1,5 @@
 package main
 
-// usage: go run server.go bash
 // substantial parts of this are copied from https://github.com/creack/pty
 import (
 	"fmt"
@@ -74,7 +73,8 @@ func handle(conn net.Conn, command []string) {
 		Cols: 80,
 		Rows: 24,
 	})
-	// start bash with tty as stdin/stdout/stderr, use bubblewrap for isolation
+	// start whatever command we got from the cmdline arguments
+	// use tty as stdin/stdout/stderr
 
 	cmd := exec.Command(command[0], command[1:]...)
 	cmd.Stdin = tty
